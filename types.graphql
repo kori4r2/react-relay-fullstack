@@ -1,0 +1,19 @@
+type Answer @model{
+  id: ID! @isUnique
+  text: String!
+  question: Question! @relation(name: "QuestionHasAnswer")
+}
+
+type Option @model{
+  id: ID! @isUnique
+  weight: Float!
+  text: String!
+  question: Question! @relation(name: "QuestionHasOptions")
+}
+
+type Question @model{
+  id: ID! @isUnique
+  text: String!
+  correct: Answer! @relation(name: "QuestionHasAnswer")
+  wrong: [Option!]! @relation(name: "QuestionHasOptions")
+}

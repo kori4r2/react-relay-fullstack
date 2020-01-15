@@ -1,0 +1,3 @@
+targets:
+  myapp: local/ck58dkc3m00040185h8p31pg5
+  default: myapp
