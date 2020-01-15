@@ -15,10 +15,6 @@ const QuestionEditFormQuery = graphql`
 class QuestionListRender extends Component{
 	render(){
 
-		const variables = {
-			input: this.props.id
-		};
-
 		return(
 		<QueryRenderer
 			environment={environment}
@@ -27,13 +23,12 @@ class QuestionListRender extends Component{
 				if(error){
 					return <div className="container border">{error.message}</div>;
 				}else if(props){
-//					console.log("procurou id = " + this.props.id + " asdkasbdk  " + JSON.stringify(props.node));
 					return <QuestionEditForm visible={this.props.visible} id={this.props.id} onClose={this.props.onClose} question={props.node}  />;
 				}else{
 					return <div className="container border">Loading</div>;
 				}
 			}}
-			variables={variables}
+			variables={{input: this.props.id}}
 		/>);
 	}
 }

@@ -11,19 +11,19 @@ const defaultQuestion ={
 	},
 	"wrong": [
 		{
-			"id": -1,
+			"id": 1,
 			"text": "",
 			"weight": 0
 		},{
-			"id": -2,
+			"id": 2,
 			"text": "",
 			"weight": 0
 		},{
-			"id": -3,
+			"id": 3,
 			"text": "",
 			"weight": 0
 		},{
-			"id": -4,
+			"id": 4,
 			"text": "",
 			"weight": 0
 		}
@@ -34,7 +34,6 @@ class QuestionEditForm extends Component{
 	constructor(props){
 		super(props);
 
-		console.log("ID aqui é " + props.id);
 		if(props.id == -1){
 			this.state = {question: defaultQuestion};
 		}else{
@@ -71,7 +70,7 @@ class QuestionEditForm extends Component{
 			<div className="container">
 				<div className="overlay" />
 				<div className="container modal edit-box">
-					{isNewQuestion? <em>Nova Pergunta</em> : <em>Editar pergunta {this.state.question.id}</em>}
+					{isNewQuestion? <em>Nova Pergunta</em> : <em>Editar pergunta</em>}
 					<p><em>Enunciado:</em></p>
 					<textarea className="text-field" onInput={this.onChangeText} defaultValue={this.state.question.text} savelocation="statement" />
 					<p><em>Resposta:</em></p>
@@ -103,6 +102,7 @@ class QuestionEditForm extends Component{
 
 	onSave(event){
 		event.preventDefault();
+
 		let question = {
 			"id": this.state.question.id,
 			"text": this.state.question.text,
@@ -111,7 +111,6 @@ class QuestionEditForm extends Component{
 			}
 		}
 		let array = [];
-
 		this.state.question.wrong.map((option) =>{
 			let newOption = {
 				text: option.text,

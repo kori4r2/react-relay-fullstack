@@ -65,11 +65,12 @@ class App extends Component{
 
 				{/* Cria a lista de perguntas ou os detalhes da pergunta sendo avaliada */}
 				{isList && <QuestionListRender onDeleteQuestion={this.showDeleteDialogue} onEditQuestion={this.showEditQuestion} onQuestionDetail={this.viewQuestionDetail} />}
+				{/* Os detalhes não foram implementados por motivos de tempo, mas eles podem ser vistos na tela de edição */}
 
 				{/* Objetos de overlay */}
 				{/* Caixa de dialogo para confirmação de apagar pergunta */}
 				<DeleteQuestionDialogue visible={this.state.deleteDialogueVisible} id={this.state.selectedID} onClose={this.hideDeleteDialogue} />
-				{/* Caixa de edicao de pergunta para criar nova pergunta ou editar existente */}
+				{/* Caixa de edição de pergunta para criar nova pergunta ou editar existente */}
 				<QuestionEditFormRender visible={this.state.editQuestionVisible} id={this.state.selectedID} onClose={this.hideEditQuestion} question={defaultQuestion} />
 			</div>
 		);

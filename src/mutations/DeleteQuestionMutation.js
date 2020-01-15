@@ -30,7 +30,7 @@ export default (id, callback) => {
 			},
 			onError: (error) => {
 				console.error(error);
-				alert("Erro apagando pergunta!");
+				alert("Erro apagando pergunta");
 			}
 		}
 	);

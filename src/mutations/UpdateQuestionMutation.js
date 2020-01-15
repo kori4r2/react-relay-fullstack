@@ -33,7 +33,7 @@ export default (id, text, correct, wrong, callback) => {
 			},
 			onError: (error) => {
 				console.error(error);
-				alert("Erro salvando operação!");
+				alert("Erro salvando alterações");
 			}
 		}
 	);
